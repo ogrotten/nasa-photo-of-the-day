@@ -7,7 +7,7 @@ const ImgPage = props => {
 			<div className="top">
 				<DateForm props={props} />
 			</div>
-			<img className="img" src={props.url} />
+			<img className="img" src={props.url} alt=""/>
 			<div className="bottom">
 				<h2>{props.title}</h2>
 				<p>{props.date}</p>

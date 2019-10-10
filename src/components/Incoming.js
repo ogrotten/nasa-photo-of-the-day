@@ -2,12 +2,21 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ImgPage from "./ImgPage";
 
-export default function Incoming() {
-	const [img, setImg] = useState([]);
+export default function Incoming(props) {
+	const [img, setImg] = useState("2019-");
 
-	useEffect(() => {
+	useEffect(props => {
+		console.log("Incoming > props: ", props);
+
+		let fullurl = "https://api.nasa.gov/planetary/apod?api_key=w09O1Uai158ieWogRkLmLXAuhfgfGFYeiEm8LnDn";
+		
+		// let newday = `&date=${props.newday}`;
+		// fullurl += (props.newday.length != 0 ? props.newday : null);
+
+		// console.log(newday);
+		
 		axios
-			.get(`https://api.nasa.gov/planetary/apod?api_key=w09O1Uai158ieWogRkLmLXAuhfgfGFYeiEm8LnDn`)
+			.get(fullurl)
 			.then(res => {
 				console.log(res);
 				setImg(res.data);
